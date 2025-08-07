@@ -66,7 +66,7 @@ public class ZebraService
         {
             var pair = new UrlQrPair { Url = url };
 
-            if (_qrCodeService.IsValidUrl(url))
+            if (QrCodeService.IsValidUrl(url))
             {
                 LogProgress($"Processing: {url}");
                 pair.Base64QrCode = _qrCodeService.GenerateQrCodeBase64(url);

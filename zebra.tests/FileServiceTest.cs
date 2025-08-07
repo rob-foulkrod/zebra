@@ -1,6 +1,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using Xunit;
+using Zebra.Exceptions;
 
 namespace Zebra.Services.Tests
 {
@@ -35,13 +36,13 @@ namespace Zebra.Services.Tests
         }
 
         [Fact]
-        public async Task ReadUrlsFromFileAsync_ShouldThrowFileNotFoundException_WhenFileDoesNotExist()
+        public async Task ReadUrlsFromFileAsync_ShouldThrowFileOperationException_WhenFileDoesNotExist()
         {
             // Arrange
             var filePath = "nonexistent_file.txt";
 
             // Act & Assert
-            await Assert.ThrowsAsync<FileNotFoundException>(() => _fileService.ReadUrlsFromFileAsync(filePath));
+            await Assert.ThrowsAsync<FileOperationException>(() => _fileService.ReadUrlsFromFileAsync(filePath));
         }
 
         [Fact]

@@ -4,6 +4,250 @@
         <name>zebra</name>
     </assembly>
     <members>
+        <member name="T:Zebra.Exceptions.FileOperationException">
+            <summary>
+            Exception thrown when file operations fail.
+            </summary>
+        </member>
+        <member name="P:Zebra.Exceptions.FileOperationException.FilePath">
+            <summary>
+            Gets the file path that caused the exception.
+            </summary>
+        </member>
+        <member name="M:Zebra.Exceptions.FileOperationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.FileOperationException"/> class.
+            </summary>
+        </member>
+        <member name="M:Zebra.Exceptions.FileOperationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.FileOperationException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Zebra.Exceptions.FileOperationException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.FileOperationException"/> class with a specified error message and file path.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="filePath">The file path that caused the exception.</param>
+        </member>
+        <member name="M:Zebra.Exceptions.FileOperationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.FileOperationException"/> class with a specified error message and a reference to the inner exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:Zebra.Exceptions.FileOperationException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.FileOperationException"/> class with a specified error message, file path, and a reference to the inner exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="filePath">The file path that caused the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="T:Zebra.Exceptions.QrCodeGenerationException">
+            <summary>
+            Exception thrown when QR code generation fails.
+            </summary>
+        </member>
+        <member name="P:Zebra.Exceptions.QrCodeGenerationException.Url">
+            <summary>
+            Gets the URL that caused the exception.
+            </summary>
+        </member>
+        <member name="M:Zebra.Exceptions.QrCodeGenerationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.QrCodeGenerationException"/> class.
+            </summary>
+        </member>
+        <member name="M:Zebra.Exceptions.QrCodeGenerationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.QrCodeGenerationException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Zebra.Exceptions.QrCodeGenerationException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.QrCodeGenerationException"/> class with a specified error message and URL.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="url">The URL that caused the exception.</param>
+        </member>
+        <member name="M:Zebra.Exceptions.QrCodeGenerationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.QrCodeGenerationException"/> class with a specified error message and a reference to the inner exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:Zebra.Exceptions.QrCodeGenerationException.#ctor(System.String,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.QrCodeGenerationException"/> class with a specified error message, URL, and a reference to the inner exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="url">The URL that caused the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="T:Zebra.Exceptions.ValidationException">
+            <summary>
+            Exception thrown when input validation fails.
+            </summary>
+        </member>
+        <member name="P:Zebra.Exceptions.ValidationException.ParameterName">
+            <summary>
+            Gets the parameter name that failed validation.
+            </summary>
+        </member>
+        <member name="P:Zebra.Exceptions.ValidationException.ParameterValue">
+            <summary>
+            Gets the parameter value that failed validation.
+            </summary>
+        </member>
+        <member name="M:Zebra.Exceptions.ValidationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.ValidationException"/> class.
+            </summary>
+        </member>
+        <member name="M:Zebra.Exceptions.ValidationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.ValidationException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Zebra.Exceptions.ValidationException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.ValidationException"/> class with a specified error message and parameter name.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="parameterName">The parameter name that failed validation.</param>
+        </member>
+        <member name="M:Zebra.Exceptions.ValidationException.#ctor(System.String,System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.ValidationException"/> class with a specified error message, parameter name, and parameter value.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="parameterName">The parameter name that failed validation.</param>
+            <param name="parameterValue">The parameter value that failed validation.</param>
+        </member>
+        <member name="M:Zebra.Exceptions.ValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.ValidationException"/> class with a specified error message and a reference to the inner exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="T:Zebra.Exceptions.ZebraException">
+            <summary>
+            Base exception class for all Zebra-specific exceptions.
+            </summary>
+        </member>
+        <member name="M:Zebra.Exceptions.ZebraException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.ZebraException"/> class.
+            </summary>
+        </member>
+        <member name="M:Zebra.Exceptions.ZebraException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.ZebraException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Zebra.Exceptions.ZebraException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zebra.Exceptions.ZebraException"/> class with a specified error message and a reference to the inner exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="T:Zebra.Services.FileService">
+            <summary>
+            Service for handling file operations.
+            </summary>
+        </member>
+        <member name="M:Zebra.Services.FileService.ReadUrlsFromFileAsync(System.String)">
+            <summary>
+            Reads URLs from a file asynchronously with comprehensive error handling.
+            </summary>
+            <param name="filePath">The path to the input file.</param>
+            <returns>A list of URLs read from the file.</returns>
+            <exception cref="T:Zebra.Exceptions.ValidationException">Thrown when input validation fails.</exception>
+            <exception cref="T:Zebra.Exceptions.FileOperationException">Thrown when file operations fail.</exception>
+        </member>
+        <member name="M:Zebra.Services.FileService.WriteHtmlToFileAsync(System.String,System.String)">
+            <summary>
+            Writes HTML content to a file asynchronously with comprehensive error handling.
+            </summary>
+            <param name="htmlContent">The HTML content to write.</param>
+            <param name="outputPath">The output file path.</param>
+            <exception cref="T:Zebra.Exceptions.ValidationException">Thrown when input validation fails.</exception>
+            <exception cref="T:Zebra.Exceptions.FileOperationException">Thrown when file operations fail.</exception>
+        </member>
+        <member name="M:Zebra.Services.FileService.ValidateInputFile(System.String)">
+            <summary>
+            Validates if an input file is suitable for processing.
+            </summary>
+            <param name="filePath">The path to the input file.</param>
+            <returns>True if the file is valid for processing; otherwise, false.</returns>
+        </member>
+        <member name="M:Zebra.Services.FileService.IsFileReadable(System.String)">
+            <summary>
+            Checks if a file is readable.
+            </summary>
+            <param name="filePath">The path to the file.</param>
+            <returns>True if the file is readable; otherwise, false.</returns>
+        </member>
+        <member name="M:Zebra.Services.FileService.IsDirectoryWritable(System.String)">
+            <summary>
+            Checks if a directory is writable.
+            </summary>
+            <param name="directoryPath">The path to the directory.</param>
+            <returns>True if the directory is writable; otherwise, false.</returns>
+        </member>
+        <member name="T:Zebra.Services.QrCodeService">
+            <summary>
+            Service for generating QR codes and validating URLs.
+            </summary>
+        </member>
+        <member name="M:Zebra.Services.QrCodeService.GenerateQrCodeBase64(System.String)">
+            <summary>
+            Generates a Base64-encoded QR code for the specified URL.
+            </summary>
+            <param name="url">The URL to encode in the QR code.</param>
+            <returns>The Base64-encoded QR code image.</returns>
+            <exception cref="T:Zebra.Exceptions.ValidationException">Thrown when URL validation fails.</exception>
+            <exception cref="T:Zebra.Exceptions.QrCodeGenerationException">Thrown when QR code generation fails.</exception>
+        </member>
+        <member name="M:Zebra.Services.QrCodeService.IsValidUrl(System.String)">
+            <summary>
+            Validates if a URL is properly formatted and supported.
+            </summary>
+            <param name="url">The URL to validate.</param>
+            <returns>True if the URL is valid; otherwise, false.</returns>
+        </member>
+        <member name="M:Zebra.Services.QrCodeService.ValidateUrlDetailed(System.String)">
+            <summary>
+            Validates a URL and returns detailed validation results.
+            </summary>
+            <param name="url">The URL to validate.</param>
+            <returns>A tuple containing validation result and error message if invalid.</returns>
+        </member>
+        <member name="M:Zebra.Services.QrCodeService.GenerateQrCodeBytes(System.String)">
+            <summary>
+            Generates QR code bytes for the specified URL.
+            </summary>
+            <param name="url">The URL to encode.</param>
+            <returns>The QR code as a byte array.</returns>
+            <exception cref="T:Zebra.Exceptions.QrCodeGenerationException">Thrown when QR code generation fails.</exception>
+        </member>
+        <member name="M:Zebra.Services.QrCodeService.ContainsInvalidCharacters(System.String)">
+            <summary>
+            Checks if a URL contains characters that could cause issues with QR code generation.
+            </summary>
+            <param name="url">The URL to check.</param>
+            <returns>True if the URL contains invalid characters; otherwise, false.</returns>
+        </member>
         <member name="T:Zebra.Test.RazorHtmlServiceTest">
             <summary>
             Simple test class to validate the Razor templating implementation
