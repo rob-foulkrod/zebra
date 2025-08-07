@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Original Template Demo</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .timestamp {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: #ecf0f1;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .stat.success {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .stat.error {
+            background: #fadbd8;
+            color: #e74c3c;
+        }
+
+        .qr-section {
+            display: flex;
+            align-items: center;
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            gap: 30px;
+        }
+
+        .url-info {
+            flex: 1;
+        }
+
+        .url-info h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .url-link {
+            color: #3498db;
+            text-decoration: none;
+            word-break: break-all;
+            font-size: 1.1em;
+        }
+
+        .url-link:hover {
+            text-decoration: underline;
+        }
+
+        .qr-code {
+            flex-shrink: 0;
+        }
+
+        .qr-code img {
+            border: 3px solid #ecf0f1;
+            border-radius: 10px;
+            background: white;
+            padding: 10px;
+        }
+
+        .error-section {
+            background: #fadbd8;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .error-section h2 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .error-list {
+            list-style-type: none;
+        }
+
+        .error-list li {
+            padding: 5px 0;
+            color: #c0392b;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .qr-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Original Template Demo</h1>
+            <p class="timestamp">Generated on: 2025-08-07 14:38:58</p>
+            <div class="stats">
+                <span class="stat">Total URLs: 3</span>
+                <span class="stat success">Valid: 2</span>
+                <span class="stat error">Invalid: 1</span>
+            </div>
+        </header>
+
+        <main>
+            
+            <div class="qr-section">
+                <div class="url-info">
+                    <h3>URL:</h3>
+                    <a href="https://www.github.com" target="_blank" class="url-link">https://www.github.com</a>
+                </div>
+                <div class="qr-code">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAuQAAALkAQAAAABv3x3IAAACZElEQVR4nO3aQXKDMAwAQH7A/3+ZH6TTxESWZWhm2l7i1aGDsbXipoqw3f8xbhudTqfT6XQ6nU6n0+l0Op1Op9PpdDqdTqd/or6Nsed7j+X+OrxfpNHpdDqdTu/uH8vrP6dpdDqdTqfTn1mpQ7ezt1c3vm1HxnE1S6PT6XQ6nX6m54SaQafT6XQ6/X29mY/WHbvbX/5PQKfT6XT6R+rz5TENl2L7r95h0+l0Op3+yfoQqXVf/KlpdDqdTqcvr8+inU3vlk8bdgk6nU6n01fWU9ajA8dG203vluPqna5Np9PpdPpyein24NLXxn3to2zk0ul0Op1O7/TDbBHmwA1PkWrT6XQ6nb683vLjKoqlebcvMWvifVk6nU6n05fW29maEN04nmK2pNPpdDqdfqyeMRzKA259nsj4adam0+l0On0Zvd2fvWrezobe9NI5ztHpdDqdTn8NwiV/dmTWtYeg0+l0On1dPXp1SR2m3CiWBuFyjk6n0+n0lfXaiPurNCsPj9Ln0ul0Op1O76fckppG4qKn0ZlOp9PpdHrejKy+xADHV8np5TSdTqfT6fTvKHAaf1vU2rFBp9PpdDr9MmbNuelpfp5d0el0Op2+sp67cJp3T+/VsnQ6nU6n05963I/l8dNsLAd4dphOp9PpdPq0G8fkO2wM7Xz4lZdOp9PpdHpBok3PP4hKtel0Op1Op1/qPTL7NOqeH2CYqel0Op1OX1yfFeuR9ADRyeNIT9DpdDqdvrI+RN9+p1yci93zrk2n0+l0+kr63wedTqfT6XQ6nU6n0+l0Op1Op9PpdDqdTqffP0f/Aqn5L5MBxabJAAAAAElFTkSuQmCC" alt="QR Code for https://www.github.com" />
+                </div>
+            </div>
+
+            <div class="qr-section">
+                <div class="url-info">
+                    <h3>URL:</h3>
+                    <a href="https://www.stackoverflow.com" target="_blank" class="url-link">https://www.stackoverflow.com</a>
+                </div>
+                <div class="qr-code">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAuQAAALkAQAAAABv3x3IAAACWElEQVR4nO3bQXLrIAwAUN8g979lbpDOJCYSQs7/i3YTnhYZY+CJnUbUPR5/GPeDTqfT6XQ6nU6n0+l0Op1Op9PpdDqdTqfTv1E/atxeK15LnsOYOGcvt9HpdDqdvr0e72N4P/ecTyNFSdsrdDqdTqdvrpe6XEr3e9fI+Kmc0+l0Op1Or8tGrc5wNMJxCjqdTqfT6f9ftZ/xIQWdTqfT6fR/3TL3P791h02n0+l0+jfrJS71NVnZRqfT6XT69vqHiPb3fiX12+h0Op1O31cv/7EzSvL5bsS5Lm6eR+4lGZ1Op9Ppm+tRnMOMYc5za4bLJ1R0Op1Op9P7gj2V5HyK6JBL6abT6XQ6fV/9mKOT8mx0w+NkH6s2nU6n0+l76f2yaIS7p3VIp9PpdDr99X5qfyPFUsTXml5+6HQ6nU6nN2bWP90od090Op1Op9Pf+2NtTjYtKe+CotPpdDqdnirvMd8yT7U6L5n64qLQ6XQ6nb63vtbgMPNT+Vkn6HQ6nU7fXr/Mk2Pafz7FvTSdTqfT6fQGvl01uOeuo2uYl8V0Op1Op++rF7ipwQMpN88jon7T6XQ6nb693kXeOlLEsDsKnU6n0+n0Wepb4ilPLCkmnU6n0+n0+v7iT7O5350630ibg06n0+n0zfWlGk/1e8kTMZ2MTqfT6XR6o8fEkyuL30jqkOl0Op1Op1/ry4dO9YOoZSIvptPpdDp9a71L1pvTfTOdTqfT6fSql1hrdR4++hKfD0in0+l0+r767wedTqfT6XQ6nU6n0+l0Op1Op9PpdDqdTqc/vkf/Ae+Wrpzxs8mbAAAAAElFTkSuQmCC" alt="QR Code for https://www.stackoverflow.com" />
+                </div>
+            </div>
+            
+            
+            <div class="error-section">
+                <h2>Invalid URLs</h2>
+                <ul class="error-list">
+                    <li><strong>invalid-url</strong> - Invalid URL format</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>Generated by Zebra QR Code Generator</p>
+        </footer>
+    </div>
+</body>
+</html>

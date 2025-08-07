@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated QR Codes</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .timestamp {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: #ecf0f1;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .stat.success {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .stat.error {
+            background: #fadbd8;
+            color: #e74c3c;
+        }
+
+        .qr-section {
+            display: flex;
+            align-items: center;
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            gap: 30px;
+        }
+
+        .url-info {
+            flex: 1;
+        }
+
+        .url-info h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .url-link {
+            color: #3498db;
+            text-decoration: none;
+            word-break: break-all;
+            font-size: 1.1em;
+        }
+
+        .url-link:hover {
+            text-decoration: underline;
+        }
+
+        .qr-code {
+            flex-shrink: 0;
+        }
+
+        .qr-code img {
+            border: 3px solid #ecf0f1;
+            border-radius: 10px;
+            background: white;
+            padding: 10px;
+        }
+
+        .error-section {
+            background: #fadbd8;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .error-section h2 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .error-list {
+            list-style-type: none;
+        }
+
+        .error-list li {
+            padding: 5px 0;
+            color: #c0392b;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .qr-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generated QR Codes</h1>
+            <p class="timestamp">Generated on: 2025-08-07 14:37:54</p>
+            <div class="stats">
+                <span class="stat">Total URLs: 5</span>
+                <span class="stat success">Valid: 4</span>
+                <span class="stat error">Invalid: 1</span>
+            </div>
+        </header>
+
+        <main>
+            
+            <div class="qr-section">
+                <div class="url-info">
+                    <h3>URL:</h3>
+                    <a href="https://www.google.com" target="_blank" class="url-link">https://www.google.com</a>
+                </div>
+                <div class="qr-code">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAuQAAALkAQAAAABv3x3IAAACV0lEQVR4nO3bwW3DMAwF0GyQ/bfMBilaWCZFS3aBIBfr8RBUMvmU268M5PH+Yr0edDqdTqfT6XQ6nU6n0+l0Op1Op9PpdDqdfkf9UevZP2jLbe+5f0zG6HQ6nU5fWz+fL0/b3miMTqfT6XR6L8Xyt63emnPLcYxOp9PpdPqsbXTieI9Op9PpdPqp/tqW8VdJcjqdTqfT6TN9vPyT4qPtffoOm06n0+n0O+ul4qp7/nEco9PpdDp9ef2q4vrb6nqCTqfT6fR19b8LbnuFvMVvuwNHQufmchEuJ9LpdDqdvrhejsjL8gViooPnt2E6nU6n01fSRxlc3ihnrjXHg3wsnU6n0+mL61tHDt1OP4wOk/z0fwI6nU6n0xfSjxkccP4rpLg1dzlPp9PpdDq9D+I89RxnejkiIp5Op9PpdPrem+M38nuyF8vBF6DT6XQ6fVU9QreE8xjpTowH+avS6XQ6nb6uHkdkqZx9NKP+8z8BnU6n0+nL6O1hdOQjytNYtpYM0+l0Op2+uB5TJ3CrUR+dTqfT6fSL6u7FObC76++2cXhDTafT6XT6unqbiraCbEdEy6jodDqdTqePK/S818V06aPT6XQ6nb535Cox3faKdIj4KDqdTqfTV9YjbyfhHPkdZp69+o0QnU6n0+lr6Tmcz0Zz8zHn6XQ6nU6nD/TYG/Wd79HpdDqdTq/66N1y1zK9IdPpdDqdvrw+Pawg27L8RPaDd9h0Op1Op99NL9UhZb4k+c7R6XQ6nU7/UtHpdDqdTqfT6XQ6nU6n0+l0Op1Op9PpdPr7PvoP+4nP5RpIZB4AAAAASUVORK5CYII=" alt="QR Code for https://www.google.com" />
+                </div>
+            </div>
+
+            <div class="qr-section">
+                <div class="url-info">
+                    <h3>URL:</h3>
+                    <a href="https://www.github.com" target="_blank" class="url-link">https://www.github.com</a>
+                </div>
+                <div class="qr-code">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAuQAAALkAQAAAABv3x3IAAACZElEQVR4nO3aQXKDMAwAQH7A/3+ZH6TTxESWZWhm2l7i1aGDsbXipoqw3f8xbhudTqfT6XQ6nU6n0+l0Op1Op9PpdDqdTqd/or6Nsed7j+X+OrxfpNHpdDqdTu/uH8vrP6dpdDqdTqfTn1mpQ7ezt1c3vm1HxnE1S6PT6XQ6nX6m54SaQafT6XQ6/X29mY/WHbvbX/5PQKfT6XT6R+rz5TENl2L7r95h0+l0Op3+yfoQqXVf/KlpdDqdTqcvr8+inU3vlk8bdgk6nU6n01fWU9ajA8dG203vluPqna5Np9PpdPpyein24NLXxn3to2zk0ul0Op1O7/TDbBHmwA1PkWrT6XQ6nb683vLjKoqlebcvMWvifVk6nU6n05fW29maEN04nmK2pNPpdDqdfqyeMRzKA259nsj4adam0+l0On0Zvd2fvWrezobe9NI5ztHpdDqdTn8NwiV/dmTWtYeg0+l0On1dPXp1SR2m3CiWBuFyjk6n0+n0lfXaiPurNCsPj9Ln0ul0Op1O76fckppG4qKn0ZlOp9PpdHrejKy+xADHV8np5TSdTqfT6fTvKHAaf1vU2rFBp9PpdDr9MmbNuelpfp5d0el0Op2+sp67cJp3T+/VsnQ6nU6n05963I/l8dNsLAd4dphOp9PpdPq0G8fkO2wM7Xz4lZdOp9PpdHpBok3PP4hKtel0Op1Op1/qPTL7NOqeH2CYqel0Op1OX1yfFeuR9ADRyeNIT9DpdDqdvrI+RN9+p1yci93zrk2n0+l0+kr63wedTqfT6XQ6nU6n0+l0Op1Op9PpdDqdTqffP0f/Aqn5L5MBxabJAAAAAElFTkSuQmCC" alt="QR Code for https://www.github.com" />
+                </div>
+            </div>
+
+            <div class="qr-section">
+                <div class="url-info">
+                    <h3>URL:</h3>
+                    <a href="https://www.microsoft.com" target="_blank" class="url-link">https://www.microsoft.com</a>
+                </div>
+                <div class="qr-code">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAuQAAALkAQAAAABv3x3IAAACWUlEQVR4nO3bQVLDMAwAwP6g//8lPyhDiSNZcsqlXOrVgYkda+WbRgFuj3+MrxudTqfT6XQ6nU6n0+l0Op1Op9PpdDqdTqd/on6rcc8vjqd7Sv09cplGp9PpdPreeuzH8uuAj6fy4zKNTqfT6XT62YPveZmlVU/vaXQ6nU6n05fHpq5d8sst6HQ6nU6nv9Sfi3xkNPFWgk6n0+l0+l9fmXPWeHrfN2w6nU6n0z9ZLxGt+/WPnkan0+l0+vb6Op6Tb8zAMRxPI/FVLp1Op9Pp++rTgBstOeAyEue3I4NOp9PpdPqVmZvz9A88x5GLIZpOp9PpdPoZbTlNvusLDJhOp9PpdPqc1dr0cba+KFcpt6DT6XQ6fWc9c70R5/xhtrRxRzqdTqfTt9cjP5cYbTrMqFiWcR86nU6n0+np2KpX9wk5uFKMTqfT6XT6fCy37inyXq+Yg06n0+n0zfXjaaS21j39ujaWcZ+XXZtOp9Pp9I30+MpcKpa9aUIuzZ5Op9PpdHqKMv5GanD9RSlGp9PpdDr9JyI1Fyutey2NMZlOp9PpdPoJ9y/KeXnxqTnv0el0Op1OX8e6iY+9eBFLOp1Op9PpSYroI/Fzu5Rd1aHT6XQ6nZ72p2UpdjzF5+dx5LmXCTqdTqfTN9dDKm06Hwk9YroZnU6n0+n0hR6NuMHBxZHpKnQ6nU6n0xd6k+LfdkpPH7l0Op1Op9PT/lQsv139VVSpSKfT6XQ6/Wy6EVPXLns5o4/OdDqdTqdvr78/6HQ6nU6n0+l0Op1Op9PpdDqdTqfT6XQ6/fE5+jfhVZ8mC6MndgAAAABJRU5ErkJggg==" alt="QR Code for https://www.microsoft.com" />
+                </div>
+            </div>
+
+            <div class="qr-section">
+                <div class="url-info">
+                    <h3>URL:</h3>
+                    <a href="https://stackoverflow.com" target="_blank" class="url-link">https://stackoverflow.com</a>
+                </div>
+                <div class="qr-code">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAuQAAALkAQAAAABv3x3IAAACW0lEQVR4nO3bS04DMQwA0N6A+9+yNwCpTPAnbgUSbMjzompm4ufZWXE7t/c/jPuNTqfT6XQ6nU6n0+l0Op1Op9PpdDqdTqfT/6N+6/GWtn3uu649lvdry8s0Op1Op9PP1eP6WkZ+vrUe5WkanU6n0+n01IMXnKV77culk09pdDqdTqfT67YMPzkc0+l0Op1O/7b+1CynYTqdTqfT6YO+LZd5XZvmzVManU6n0+nH6y1K637xsafR6XQ6nX68PkXk5Kvrd9zXuXQ6nU6nn63H2zmPWC15NvdXedrRmU6n0+n0k/V8ti0D5mlZD70p6HQ6nU6n18i7yzB5e4rJpNPpdDqd/rnq/xhu3777Zg+dTqfT6cfrGY6Jcpktt9q5xBo616el0+l0Ov1oPbKmJj6VyO18q02n0+l0On2aHl93o2KJaNh0Op1Op9N7xNk2+ner2I7JjyjdnU6n0+n0k/W8t/TlJuXWvTp5/qDT6XQ6nb7peW+07taXo9gPuzadTqfT6SfosSOW+Vt8lBn01snpdDqdTqdfkRPiWmvObfw8V6TT6XQ6/XB9atNhtlPzHnQ6nU6n059FqzP16laHTqfT6XR63ZFT4zfbZX6llsbeBsx0Op1Opx+vl5tXwn7yzct2Qo5HodPpdDqdnrPasiH5SNy20Ol0Op1Of6EH95XVmnO6ER6dTqfT6fSq56yYMi8kllOLp9PpdDr9eH0qFvBctgyd6XQ6nU6npx0R+3+hthvRq9eWHHQ6nU6nn6v/ftDpdDqdTqfT6XQ6nU6n0+l0Op1Op9PpdPr7/9E/ALzSVriedb9fAAAAAElFTkSuQmCC" alt="QR Code for https://stackoverflow.com" />
+                </div>
+            </div>
+            
+            
+            <div class="error-section">
+                <h2>Invalid URLs</h2>
+                <ul class="error-list">
+                    <li><strong>invalid-url</strong> - Invalid URL format</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>Generated by Zebra QR Code Generator</p>
+        </footer>
+    </div>
+</body>
+</html>

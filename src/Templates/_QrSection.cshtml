@@ -1,0 +1,10 @@
+@model Zebra.Models.UrlQrPair
+<div class="qr-section">
+    <div class="url-info">
+        <h3>URL:</h3>
+        <a href="@Model.Url" target="_blank" class="url-link">@Model.Url</a>
+    </div>
+    <div class="qr-code">
+        <img src="data:image/png;base64,@Model.Base64QrCode" alt="QR Code for @Model.Url" />
+    </div>
+</div>

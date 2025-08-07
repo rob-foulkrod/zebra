@@ -1,0 +1,209 @@
+@model Zebra.Models.QrCodeReportModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .timestamp {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: #ecf0f1;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .stat.success {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .stat.error {
+            background: #fadbd8;
+            color: #e74c3c;
+        }
+
+        .qr-section {
+            display: flex;
+            align-items: center;
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            gap: 30px;
+        }
+
+        .url-info {
+            flex: 1;
+        }
+
+        .url-info h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .url-link {
+            color: #3498db;
+            text-decoration: none;
+            word-break: break-all;
+            font-size: 1.1em;
+        }
+
+        .url-link:hover {
+            text-decoration: underline;
+        }
+
+        .qr-code {
+            flex-shrink: 0;
+        }
+
+        .qr-code img {
+            border: 3px solid #ecf0f1;
+            border-radius: 10px;
+            background: white;
+            padding: 10px;
+        }
+
+        .error-section {
+            background: #fadbd8;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .error-section h2 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .error-list {
+            list-style-type: none;
+        }
+
+        .error-list li {
+            padding: 5px 0;
+            color: #c0392b;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .qr-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>@Model.Title</h1>
+            <p class="timestamp">Generated on: @Model.Timestamp.ToString("yyyy-MM-dd HH:mm:ss")</p>
+            <div class="stats">
+                <span class="stat">Total URLs: @Model.TotalCount</span>
+                <span class="stat success">Valid: @Model.ValidCount</span>
+                @if (Model.HasInvalidUrls)
+                {
+                    <span class="stat error">Invalid: @Model.InvalidCount</span>
+                }
+            </div>
+        </header>
+
+        <main>
+            @foreach (var pair in Model.ValidPairs)
+            {
+                <div class="qr-section">
+                    <div class="url-info">
+                        <h3>URL:</h3>
+                        <a href="@pair.Url" target="_blank" class="url-link">@pair.Url</a>
+                    </div>
+                    <div class="qr-code">
+                        <img src="data:image/png;base64,@pair.Base64QrCode" alt="QR Code for @pair.Url" />
+                    </div>
+                </div>
+            }
+            
+            @if (Model.HasInvalidUrls)
+            {
+                <div class="error-section">
+                    <h2>Invalid URLs</h2>
+                    <ul class="error-list">
+                        @foreach (var invalidPair in Model.InvalidPairs)
+                        {
+                            <li><strong>@invalidPair.Url</strong> - @invalidPair.ErrorMessage</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </main>
+
+        <footer>
+            <p>Generated by Zebra QR Code Generator</p>
+        </footer>
+    </div>
+</body>
+</html>

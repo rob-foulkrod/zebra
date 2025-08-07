@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>zebra</name>
+    </assembly>
+    <members>
+        <member name="T:Zebra.Test.RazorHtmlServiceTest">
+            <summary>
+            Simple test class to validate the Razor templating implementation
+            </summary>
+        </member>
+    </members>
+</doc>

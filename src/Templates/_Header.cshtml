@@ -1,0 +1,13 @@
+@model Zebra.Models.QrCodeReportModel
+<header>
+    <h1>@Model.Title</h1>
+    <p class="timestamp">Generated on: @Model.Timestamp.ToString("yyyy-MM-dd HH:mm:ss")</p>
+    <div class="stats">
+        <span class="stat">Total URLs: @Model.TotalCount</span>
+        <span class="stat success">Valid: @Model.ValidCount</span>
+        @if (Model.HasInvalidUrls)
+        {
+            <span class="stat error">Invalid: @Model.InvalidCount</span>
+        }
+    </div>
+</header>

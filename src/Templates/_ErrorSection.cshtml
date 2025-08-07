@@ -1,0 +1,10 @@
+@model List<Zebra.Models.UrlQrPair>
+<div class="error-section">
+    <h2>Invalid URLs</h2>
+    <ul class="error-list">
+        @foreach (var invalidPair in Model)
+        {
+            <li><strong>@invalidPair.Url</strong> - @invalidPair.ErrorMessage</li>
+        }
+    </ul>
+</div>
